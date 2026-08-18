@@ -8,9 +8,11 @@ export function TotalsStrip({ totals, label }: { totals: Total[]; label?: string
   return (
     <dl className="totals" aria-label={label}>
       {totals.map((t) => (
-        <div className="cell" key={t.label}>
-          <span className="num">{t.num}</span>
-          <span className="label">{t.label}</span>
+        <div className="cell" key={t.label} style={{ display: 'flex', flexDirection: 'column' }}>
+          <dt className="label">{t.label}</dt>
+          <dd className="num" style={{ order: -1, margin: 0 }}>
+            {t.num}
+          </dd>
         </div>
       ))}
     </dl>
